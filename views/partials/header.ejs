@@ -12,8 +12,8 @@
 
   
     <li><a href="/" <%- title === 'All Days' ? 'class="active"' : '' %>>HOME</a> </li>
-    <li><a href="/days" <%- title === 'All Days' ? 'class="active"' : '' %>>ALL DAYS</a> </li>
     <% if (user) { %>
+      <li><a href="/days" <%- title === 'All Days' ? 'class="active"' : '' %>>ALL DAYS</a> </li>
         <li><a href="/workouts/new"	<%- title === 'Add Workout' ? 'class="active"' : '' %>> </li>
       ADD WORKOUT</a>
         <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>

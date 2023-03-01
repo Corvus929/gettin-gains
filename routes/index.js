@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Gettin Gains' });
   // res.redirect('/home');
 });
 
@@ -20,9 +20,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/days',
+    successRedirect: '/',
     failureRedirect: '/'
   }
 ))
+
+router.get('/logout', function(req, res){
+  req.logout(function() {
+    res.redirect('/');
+  });
+});
 
 module.exports = router;
