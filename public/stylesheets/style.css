@@ -13,9 +13,10 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* h1 {
-  align-items: center;
-} */
+li {
+  display: inline;
+
+}
 
 p {
   align-self: flex-start;
