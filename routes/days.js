@@ -1,10 +1,11 @@
 let express = require('express');
 let router = express.Router();
-const daysCtrl = require('..controllers/days');
+const daysCtrl = require('../controllers/days');
 
-router.get('/days', daysCtrl.index);
-router.get('/days/new', daysCtrl.new);
-router.get('/days/:id', daysCtrl.show);
-router.post('/days', daysCtrl.create);
+//everything has /days in front of it
+router.get('/', daysCtrl.index);
+router.get('/new', daysCtrl.new);
+router.get('/:id', daysCtrl.show);
+router.post('/', daysCtrl.create);
 
 module.exports = router;

@@ -10,7 +10,8 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// let daysRouter = require('./routes/days')
+let daysRouter = require('./routes/days');
+let workoutsRouter = require('./routes/workouts')
 
 var app = express();
 
@@ -42,7 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/days', daysRouter);
+app.use('/days', daysRouter);
+app.use('/days/:id', workoutsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

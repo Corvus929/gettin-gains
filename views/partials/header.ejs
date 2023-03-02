@@ -11,16 +11,12 @@
   <nav>
 
   
-    <li><a href="/" <%- title === 'All Days' ? 'class="active"' : '' %>>HOME</a> </li>
     <% if (user) { %>
-      <li><a href="/days" <%- title === 'All Days' ? 'class="active"' : '' %>>ALL DAYS</a> </li>
-        <li><a href="/workouts/new"	<%- title === 'Add Workout' ? 'class="active"' : '' %>> </li>
-      ADD WORKOUT</a>
-        <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>
+        <li><a href="/days" <%- title === 'HOMEPAGE' ? 'class="active"' : '' %>>HOME</a> </li>
         <li><a href="/logout">LOG OUT</a> </li>
     <% } else { %>
         <li><a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a> </li>
     <% } %>
   </nav>
   <main>
-    <h1><%= title %></h1>
+    <!-- <h1><%= title %></h1> -->

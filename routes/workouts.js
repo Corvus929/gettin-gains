@@ -1,9 +1,9 @@
 let express = require('express');
 let router = express.Router();
-const workoutsCtrl = require('..controllers/performers');
+const workoutsCtrl = require('../controllers/workouts');
 
-router.get('/workouts/new', workoutsCtrl.new);
-router.post('/workouts', workoutsCtrl.create);
-router.post('/days/:id/workouts', workoutsCtrl.addToDays);
+router.get('/new', workoutsCtrl.new);
+router.post('/', workoutsCtrl.create);
+router.post('/:id', workoutsCtrl.addToDay);
 
 module.exports = router;

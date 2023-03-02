@@ -12,14 +12,6 @@ user: {
     ref: 'User',
     // required: true
   },
-
-}, {
-    timestamps: true
-})
-
-const daySchema = new Schema ({
-    date: Date,
-    workouts: [workoutSchema]
 }, {
     timestamps: true
 })

@@ -1,14 +1,24 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 <body id="disneyland">
   <h2>Track your workouts here! Link videos, notes, times, reps, and anything else!</h2>
 
-<button class="days"> Day 1 </button>
-<button class="days"> Day 2 </button>
-<button class="days"> Day 3 </button>
-  <button id="newday">+ New Day</button>
 
-  <%- include('./partials/footer') %>
+  <li><a href="/days" <%- title === 'Your Home' ? 'class="active"' : '' %>>ALL DAYS</a> </li>
+
+  
+  <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>
+  <!-- Insert all the created days here 
+    each day redirect to days/:id button on day selected
+    each day edit day button on day selected
+      open day and put all workouts within in edit mode
+      put day name in edit mode
+    each day delete day button on day selected
+      delete all workouts within a day and the day schema
+    new day separate button
+  -->
+
+  <%- include('../partials/footer') %>
 
 
 
