@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<section>
+<div>Date</div>
+<div><%= day.date %></div>
+<div>Workouts</div>
+<table>
+   <% day.workouts.forEach(workout => { %>
+    <tr>
+        <td>Name: </td>
+        <td>Notes: </td>
+        <td>Image: </td>
+    </tr>    
+    <tr>
+            <td><%= workout.name %></td>
+            <td><%= workout.notes %></td>
+            <td><img src="<%= workout.image %>" alt="image"></td>
+
+        </tr>
+    <% }) %> 
+</table>
+</section>
+
+
+<%- include('../partials/footer') %>

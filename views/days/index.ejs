@@ -1,13 +1,22 @@
 <%- include('../partials/header') %>
 
-<body id="disneyland">
+<!-- <body id="disneyland"> -->
   <h2>Track your workouts here! Link videos, notes, times, reps, and anything else!</h2>
 
+  <!-- <form action="/days" method="GET"> -->
+      <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>
 
-  <li><a href="/days" <%- title === 'Your Home' ? 'class="active"' : '' %>>ALL DAYS</a> </li>
+    <% days.forEach(function(day) { %> 
+  <ul>
+    <li><%= day.date %></li>
+    <li><a href="/days/<%= day._id %>">DETAILS </a></li>
+  </ul>
+    <% }); %>
 
-  
-  <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>
+
+<%- include('../partials/footer') %>
+
+
   <!-- Insert all the created days here 
     each day redirect to days/:id button on day selected
     each day edit day button on day selected
@@ -17,10 +26,6 @@
       delete all workouts within a day and the day schema
     new day separate button
   -->
-
-  <%- include('../partials/footer') %>
-
-
 
 
 

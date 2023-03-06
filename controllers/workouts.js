@@ -15,15 +15,16 @@ function index(req, res) {
 function addToDay(req, res) {
     Day.findById(req.params.id, function(err, movie) {
         day.workouts.push(res.body.performerId);
-        day.dave(function(err) {
+        day.save(function(err) {
             res.redirect(`/days/${day._id}`);
         });
 });
 }
 
 function create(req, res) {
-    req.body.born({})
-    
+    Workout.create(req.body, function(err, workout)  {
+        res.redirect('workouts/new');
+    });
 }
 
 function newWorkout(req, res) {

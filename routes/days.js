@@ -8,4 +8,10 @@ router.get('/new', daysCtrl.new);
 router.get('/:id', daysCtrl.show);
 router.post('/', daysCtrl.create);
 
+router.get('/submit', function(req, res){
+    req.logout(function() {
+      res.redirect('/:id/workout/new');
+    });
+  });
+
 module.exports = router;
