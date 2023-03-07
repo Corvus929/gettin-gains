@@ -42,7 +42,7 @@ img {
   justify-self: center;
 }
 
-button {
+/* button {
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -54,7 +54,7 @@ button {
   height: 30vh;
   width: 50vh;
   gap: 10vh;
-}
+} */
 
 /* .days {
   display: flex;

@@ -1,22 +1,21 @@
-<%- include('../partials/header') %>
+<%- include('../../partials/header') %>
 
+<h1>Date: </h1>
 
-<!-- <li><a href="/workouts/new"	<%- title === 'Add Workout' ? 'class="active"' : '' %>> </li> -->
-    <!-- ADD WORKOUT</a> -->
+<form id="new-form" action="/workouts/" method="POST">
+<input type="hidden" name="dayId" value="<%= dayId %>">
+  <label>Name of Workout: </label>
+    <input type="text" name="name">
 
-    
-<form id="new-form" action="/workout/new" method="POST">
-  <label>Day:</label>
-  <select name="Day">
-    <option value=``></option>
-  </select>
-  <input type="text" name="title">
-  <input type="text" name="Notes">
-  <input type="text" name="Image Link">
-  <input type="text" name="Video Link">
+  <label>Notes: </label>
+    <input type="text" name="notes">
+  <label>Link to Example Image</label>
+    <input type="text" name="image">
+  <label>Link to Example Video</label>
+  <input type="text" name="video">
 
   <input type="submit" value="Add Workout">
   <!-- redirect to the day new workout is in -->
 </form>
 
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>

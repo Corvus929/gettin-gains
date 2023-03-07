@@ -4,12 +4,19 @@
   <h2>Track your workouts here! Link videos, notes, times, reps, and anything else!</h2>
 
   <!-- <form action="/days" method="GET"> -->
-      <li><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </li>
+      <div><a href="/days/new" <%- title === 'Add Day' ? 'class="active"' : '' %>>ADD DAY</a> </div>
 
     <% days.forEach(function(day) { %> 
   <ul>
     <li><%= day.date %></li>
     <li><a href="/days/<%= day._id %>">DETAILS </a></li>
+      <li>
+        <form action="/days/<%= day.id %>?_method=DELETE"
+          class="delete-day" method="POST">
+          <button type="submit">X</button>
+        </form>
+        </li>
+    
   </ul>
     <% }); %>
 

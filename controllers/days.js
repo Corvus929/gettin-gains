@@ -19,34 +19,15 @@ function index(req, res) {
 })
     }
 
-
-// function show(req, res) {
-//     Day.findById(req.params.id)
-//     .populate('workouts')
-//     .then(function(day) {
-//         Workout.find(
-//           {_id: {$nin: day.workouts}})
-//           .then(
-//           function(workouts) {
-//             console.log(workouts);
-//             res.render('days/show', {
-//               title: 'Day',
-//               day,
-//               workouts
-//             });
-//           }
-//         );
-//       });
-// }
-
 async function show(req, res) {
+    console.log(req.params.id);
     try {
         let id = req.params.id;
         let day = await Day.findById(id).populate('workouts');
         if(day) {
             console.log(day);
             return res.render('days/show', {
-                title: 'Day',
+                title: `Day`,
                 day                
             })
         }
@@ -61,11 +42,11 @@ function newDay(req, res) {
 
 function create(req, res) {
     const day = new Day(req.body);
-    day.userRecommending = req.user._id;
-    day.save(function(err) {
-        if (err) return res.redirect('/days/new');
+    // day.userRecommending = req.user._id;
+    day.save() 
+    .then(function(day) {
         console.log(day);
-        res.redirect('/days/:id/workouts/new')
+        res.redirect('/days/workouts/new')
     });
     
 }
@@ -90,10 +71,8 @@ function update(res, res) {
     );
 }
 
-function deleteDay(req, res) {
-    Day.findOneAndDelete(
-        {_id: req.params.id, userRecommending: req.user._id, function(err) {
-            res.redirect('/days');
-        }}
-    );
-}
+async function deleteDay(req, res) {
+    let deleteCount = await Day.findByIdAndDelete(req.params.id);
+    console.log(deleteCount);    
+    res.redirect(`/days`);
+    };

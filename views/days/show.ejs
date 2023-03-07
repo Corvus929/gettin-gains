@@ -1,25 +1,34 @@
 <%- include('../partials/header') %>
 
 <section>
-<div>Date</div>
-<div><%= day.date %></div>
+<div>Date: <%= day.date %></div>
 <div>Workouts</div>
+<div><a href="/workouts/new/days/<%= day.id %>" <%- title === 'Add Workout' ? 'class="active"' : '' %>>ADD WORKOUT</a> </div>
+
 <table>
    <% day.workouts.forEach(workout => { %>
     <tr>
         <td>Name: </td>
         <td>Notes: </td>
         <td>Image: </td>
+        <td>Edit Workout</td>
+        <td>Delete Workout</td>
     </tr>    
     <tr>
             <td><%= workout.name %></td>
             <td><%= workout.notes %></td>
+            <td><%= %></td>
             <td><img src="<%= workout.image %>" alt="image"></td>
-
+            <td><form action="/days/<%= day.id %>"
+                class="delete-workout" method="DELETE">
+                <button type="submit">X</button>
+              </form></td>
         </tr>
     <% }) %> 
+
+
 </table>
 </section>
 
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %> 
