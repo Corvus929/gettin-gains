@@ -7,21 +7,21 @@
 
 <table>
    <% day.workouts.forEach(workout => { %>
+    <div><a href="/workouts/edit/days/<%= workout.id %>" <%- title === 'Edit Workout' ? 'class="active"' : '' %></a> EDIT </div>
+
     <tr>
         <td>Name: </td>
         <td>Notes: </td>
         <td>Image: </td>
-        <td>Edit Workout</td>
-        <td>Delete Workout</td>
+        <td></td>
     </tr>    
     <tr>
             <td><%= workout.name %></td>
             <td><%= workout.notes %></td>
-            <td><%= %></td>
             <td><img src="<%= workout.image %>" alt="image"></td>
-            <td><form action="/days/<%= day.id %>"
-                class="delete-workout" method="DELETE">
-                <button type="submit">X</button>
+            <td><form action="/days/<%= day.id %>?_method=DELETE"
+                class="delete-workout" method="POST">
+                <button type="submit">Delete</button>
               </form></td>
         </tr>
     <% }) %> 

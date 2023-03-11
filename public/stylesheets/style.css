@@ -61,3 +61,7 @@ img {
   flex-direction: row;
   align-self: stretch;
 } */
+
+table > tr > td {
+  gap: 15vmin
+}

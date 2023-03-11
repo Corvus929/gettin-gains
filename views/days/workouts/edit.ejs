@@ -1,0 +1,21 @@
+<%- include('../../partials/header') %>
+
+<h1>Date: </h1>
+
+<form id="new-form" action="/workouts/edit/days/<%=  workout._id %>?_method=PUT" method="POST">
+
+    <label>Name of Workout: </label>
+    <input type="text" name="name" value=" <%= workout.name %>">
+
+  <label>Notes: </label>
+    <input type="text" value="<%= workout.notes %>" name="notes">
+  <label>Link to Example Image</label>
+    <input type="text" name="image" value="<%= workout.image %>">
+  <label>Link to Example Video</label>
+  <input type="text" name="video" value="<%= workout.video %>">
+
+  <input type="submit" value="Edit Workout">
+  <!-- redirect to the day new workout is in -->
+</form>
+
+<%- include('../../partials/footer') %>

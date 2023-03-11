@@ -6,7 +6,9 @@ module.exports = {
     addToDay,
     create,
     index,
-    delete: deleteWorkout
+    delete: deleteWorkout,
+    update,
+    edit
 };
 
 function index(req, res) {
@@ -54,6 +56,24 @@ function newWorkout(req, res) {
 async function deleteWorkout(req, res) {
     let deleteCount = await Workout.findByIdAndDelete(req.params.id);
     console.log(deleteCount);    
-    res.redirect(`/days/show`);
+    res.redirect(`/days/`);
     
+}
+
+async function update(req, res) {
+    console.log(req.body);
+    let updateCount = await Workout.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    console.log(updateCount);
+    res.redirect(`/days`)
+}
+
+function edit(req, res) {
+    Workout.findById(req.params.id)
+    .then(function(workout) {
+        console.log(workout);
+        res.render(`days/workouts/edit`, { title: 'Edit Workout',
+        workout
+    })
+        
+        });
 }
