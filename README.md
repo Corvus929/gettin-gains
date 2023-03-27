@@ -1,4 +1,4 @@
-# gettin-gains
+# gettin-gains https://gettin-gains.herokuapp.com/
 Gettin' Gains is a multi-part workout tracker for those who want to be more active in their life. Users simply input data for what workout they've done, and when they did it so they can organize and keep track of their activities. 
 
 Node.js, Javascript, HTML, CSS 
